@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Member} from '../member';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-add',
@@ -10,7 +11,7 @@ import { Member} from '../member';
 export class AddComponent implements OnInit{
   @Input() toedit!: Member
   public memberForm: FormGroup
-  constructor(public builder: FormBuilder){
+  constructor(public builder: FormBuilder, private dataService: DataService){
     this.memberForm = this.builder.group({
       'userName':['',[Validators.required]],
       'country':['',[Validators.required]],
@@ -18,12 +19,16 @@ export class AddComponent implements OnInit{
       'email':['',[Validators.required]]
     })
   }
+
+
   @Output() newEvent = new EventEmitter<boolean>();
   ngOnInit(): void {
     if (this.toedit) {
       this.memberForm.setValue(this.toedit)
     }
   }
+
+  
 
   
   @Output() AddFormChange = new EventEmitter<boolean>();
@@ -36,4 +41,6 @@ export class AddComponent implements OnInit{
   addNewItem(value: Member) {
     this.newItemEvent.emit(value);
   }
+
+
 }

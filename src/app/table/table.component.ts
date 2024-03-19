@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core
 import { Member, datas } from '../member';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DataService } from '../data.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -20,10 +21,12 @@ export class TableComponent {
     this.FormYes = true;
   }
 
+
   remove(index: number) {
-    this.dataSource = this.dataService.deleteData(index);
+    this.dataService.deleteData(index);
     this.table.renderRows();
   }
+
   edit(index: number) {
     this.EditYes = true;
     this.index = index;
@@ -43,21 +46,23 @@ export class TableComponent {
 
   addItem(newItem: Member) {
     if (this.EditYes==true) {
-      this.dataSource = this.dataService.putData(this.index, newItem);
+      this.dataService.putData(this.index, newItem);
       this.table.renderRows();
     } else if (this.FormYes==true) {
-      this.dataSource.data.push(newItem);
-    this.table.renderRows();
+      this.dataService.postData(newItem);
+      this.table.renderRows();
     }
+    this.table.renderRows();
     this.EditYes=false;
     this.FormYes=false;
+    
   }
 
   constructor(private dataService: DataService) {
   }
-
-  ngOnInit(): void {
-    this.dataSource = this.dataService.getData();
-  }
   
+  ngOnInit(): void {
+    this.dataSource = new MatTableDataSource<Member>(datas)
+    this.dataService.getData();
+  }
 }
