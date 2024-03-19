@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { Member } from '../member';
+import { Member, datas } from '../member';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -13,33 +13,7 @@ export class TableComponent {
   index!: number
   FormYes: boolean = false;
   EditYes: boolean = false;
-  datas: Member[] = [
-    {"userName": "Carl",
-    "country": "Sweden",
-    "salary": 24,
-    "email": "cluphetret@hotmail.com"
-    }, 
-    {"userName": "Jani",
-    "country": "Norway",
-    "salary": 5,
-    "email": "Guithay65@gustr.com"
-    },
-    {"userName": "Margareth",
-    "country": "England",
-    "salary": 5,
-    "email": "phitrudreh@yahoo.com"
-    },
-    {"userName": "Joe",
-    "country": "Denmark",
-    "salary": 20,
-    "email": "qakyssaxisu-3687@yopmail.com"
-    },
-    {"userName": "Hege",
-    "country": "Norway",
-    "salary": 15,
-    "email": "thapripich@gmail.com"
-    },
-  ]
+  datas: Member[] = datas
   dataSource = new MatTableDataSource(this.datas);
   displaySequence: string[] = ["userName", "country", "salary", "email", "actions"]
   add() {

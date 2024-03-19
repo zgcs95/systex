@@ -1,20 +1,20 @@
 <div class="container">
     <form [formGroup]="memberForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="userName">名稱</label>
-            <input type="text" class="form-control" formControlName="userName">
+            <label for="userName">Name</label>
+            <input type="text" class="form-control" formControlName="userName" placeholder="Edit name">
         </div>
         <div class="form-group">
-            <label for="contry">國家</label>
-            <input type="text" class="form-control" formControlName="country">
+            <label for="contry">Country</label>
+            <input type="text" class="form-control" formControlName="country" placeholder="Edit country">
         </div>
         <div class="form-group">
-            <label for="salary">薪水</label>
-            <input type="number" class="form-control" formControlName="salary">
+            <label for="salary">Salary</label>
+            <input type="number" class="form-control" formControlName="salary" placeholder="Edit salary">
         </div>
         <div class="form-group">
             <label for="userName">Email</label>
-            <input type="string" class="form-control" formControlName="email">
+            <input type="string" class="form-control" formControlName="email" placeholder="Edit email">
         </div>
         <button type="submit" class="btn btn-primary" (click)="addNewItem(this.memberForm.value)">Save change</button>
         <button type="cancel" class="btn btn-primary">Cancel</button>
