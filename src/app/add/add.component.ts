@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Member} from '../member';
 import { DataService } from '../data.service';
 
@@ -13,33 +13,48 @@ export class AddComponent implements OnInit{
   public memberForm: FormGroup
   constructor(public builder: FormBuilder, private dataService: DataService){
     this.memberForm = this.builder.group({
-      'userName':['',[Validators.required]],
+      'userName': ['',[Validators.required]],
       'country':['',[Validators.required]],
       'salary':['',[Validators.required]],
       'email':['',[Validators.required]]
     })
   }
 
-
-  @Output() newEvent = new EventEmitter<boolean>();
   ngOnInit(): void {
     if (this.toedit) {
       this.memberForm.setValue(this.toedit)
     }
   }
-
-  
-
-  
-  @Output() AddFormChange = new EventEmitter<boolean>();
-  onSubmit(){
-    this.newEvent.emit(false)
+  ngOnChanges(): void {
+    this.memberForm.setValue(this.toedit)
   }
-  
+
 
   @Output() newItemEvent = new EventEmitter<Member>();
   addNewItem(value: Member) {
     this.newItemEvent.emit(value);
+  }
+
+  showErrorMessage(name: string, display: string): string {
+    let formControl = this.memberForm.get(name);
+    let errorMessage: string = '';
+    if (formControl?.valid) {
+      errorMessage ='';
+    } else if (formControl?.errors?.['required']) {
+      errorMessage = `Please input ${display}`
+    } else if (formControl?.errors?.['pattern']) {
+      errorMessage = `must enter valid ${display}`
+    } else if (formControl?.errors?.['email']) {
+      errorMessage = `${display}`
+    }
+    return errorMessage
+  }
+
+  
+  @Output() buttonClick: EventEmitter<void> = new EventEmitter();
+
+  onButtonClick(): void {
+    this.buttonClick.emit();
   }
 
 
