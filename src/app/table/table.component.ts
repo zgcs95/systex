@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Member, datas } from '../member';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-table',
@@ -13,25 +14,16 @@ export class TableComponent {
   index!: number
   FormYes: boolean = false;
   EditYes: boolean = false;
-  datas: Member[] = datas
-  dataSource = new MatTableDataSource(this.datas);
+  dataSource!: MatTableDataSource<Member>
   displaySequence: string[] = ["userName", "country", "salary", "email", "actions"]
   add() {
     this.FormYes = true;
   }
 
   remove(index: number) {
-    if (index == 0) {
-      this.dataSource.data = this.dataSource.data.slice(1, this.dataSource.data.length)
-    } else if (index == this.dataSource.data.length-1) {
-      this.dataSource.data = this.dataSource.data.slice(0, this.dataSource.data.length-1)
-    } else {
-      this.dataSource.data = this.dataSource.data.slice(0, index).concat(this.dataSource.data.slice(index+1, this.dataSource.data.length))
-    }
+    this.dataSource = this.dataService.deleteData(index);
     this.table.renderRows();
   }
-
-
   edit(index: number) {
     this.EditYes = true;
     this.index = index;
@@ -51,7 +43,7 @@ export class TableComponent {
 
   addItem(newItem: Member) {
     if (this.EditYes==true) {
-      this.dataSource.data[this.index] = newItem;
+      this.dataSource = this.dataService.putData(this.index, newItem);
       this.table.renderRows();
     } else if (this.FormYes==true) {
       this.dataSource.data.push(newItem);
@@ -59,6 +51,13 @@ export class TableComponent {
     }
     this.EditYes=false;
     this.FormYes=false;
+  }
+
+  constructor(private dataService: DataService) {
+  }
+
+  ngOnInit(): void {
+    this.dataSource = this.dataService.getData();
   }
   
 }
