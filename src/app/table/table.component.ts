@@ -49,7 +49,6 @@ export class TableComponent {
     this.FormYes = newItem
   }
 
-  
   addItem(newItem: Member) {
     if (this.EditYes==true) {
       this.dataSource.data[this.index] = newItem;
