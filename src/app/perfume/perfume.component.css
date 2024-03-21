@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .image-container {
+    flex: 0 0 auto; /* Do not grow, do not shrink, use auto size */
+    margin-right: 20px; /* Adjust spacing between image and text */
+  }
+  
+  .text-container {
+    flex: 1; /* Grow to fill remaining space */
+  }

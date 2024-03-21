@@ -1,16 +1,19 @@
 <div class="container">
+    <div>
+        <ng-content></ng-content>
+    </div>
     <form [formGroup]="memberForm">
         <div class="form-group">
             <label for="userName">Name</label>
             <input type="text" class="form-control" formControlName="userName" placeholder="Edit name">
             <div *ngIf="memberForm.controls['userName']?.touched">
                 <mat-error>
-                    {{showErrorMessage('userName', 'userName')}}
+                    {{showErrorMessage('userName', 'name')}}
                 </mat-error>
             </div>
         </div>
         <div class="form-group">
-            <label for="contry">Country</label>
+            <label for="country">Country</label>
             <input type="text" class="form-control" formControlName="country" placeholder="Edit country">
             <div *ngIf="memberForm.controls['country']?.touched">
                 <mat-error>
@@ -32,15 +35,20 @@
             <input type="email" class="form-control" formControlName="email" placeholder="Edit email">
             <div *ngIf="memberForm.controls['email']?.touched">
                 <mat-error>
-                    {{showErrorMessage('email', 'Email')}}
+                    {{showErrorMessage('email', 'email')}}
                 </mat-error>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="addNewItem(this.memberForm.value)" [disabled]="memberForm.invalid">Save change</button>
+        <button type="button" class="btn btn-primary" (click)="addNewItem(this.memberForm.value)" [disabled]="memberForm.invalid"><i class="fa-solid fa-pen"></i> Save change</button>
         <button type="button" class="btn btn-primary" (click)="onButtonClick()">Cancel</button>
     </form>
 </div>
 
+<style>
+    label{
+        font-weight:bold;
+    }
+</style>
 
 
 

@@ -16,7 +16,7 @@ export class AddComponent implements OnInit{
       'userName': ['',[Validators.required]],
       'country':['',[Validators.required]],
       'salary':['',[Validators.required]],
-      'email':['',[Validators.required]]
+      'email':['',[Validators.required, Validators.email]]
     })
   }
 
@@ -45,7 +45,7 @@ export class AddComponent implements OnInit{
     } else if (formControl?.errors?.['pattern']) {
       errorMessage = `must enter valid ${display}`
     } else if (formControl?.errors?.['email']) {
-      errorMessage = `${display}`
+      errorMessage = `Please input valid ${display}`
     }
     return errorMessage
   }
@@ -56,6 +56,4 @@ export class AddComponent implements OnInit{
   onButtonClick(): void {
     this.buttonClick.emit();
   }
-
-
 }

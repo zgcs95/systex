@@ -13,12 +13,19 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { AddComponent } from './add/add.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { PerfumeComponent } from './perfume/perfume.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MiddleComponent } from './middle/middle.component';
+import { FooterComponent } from './footer/footer.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
-    AddComponent
+    AddComponent,
+    PerfumeComponent,
+    MiddleComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +39,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NoopAnimationsModule,
     ReactiveFormsModule,
     NgbModule,
+    MatTabsModule,
+    MatCardModule
     
   ],
   providers: [],

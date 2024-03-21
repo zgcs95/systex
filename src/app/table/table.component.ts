@@ -16,8 +16,8 @@ export class TableComponent {
   AddYes: boolean = false;
   dataSource!: MatTableDataSource<Member>
   displaySequence: string[] = ["userName", "country", "salary", "email", "actions"]
-
   filterValue!: string;
+  sourcenum!: number;
 
   add() {
     this.EditYes = false;
@@ -50,12 +50,25 @@ export class TableComponent {
     if (this.EditYes==true) {
       this.dataService.putData(this.index, newItem);
       this.table.renderRows();
-    } else if (this.AddYes==true) {
+    } 
+    if (this.AddYes==true) {
       this.dataService.postData(newItem);
       this.table.renderRows();
     }
     this.close()
   }
+  
+
+  // addItem(newItem: Member) {
+  //   if (this.EditYes==true) {
+  //     this.dataService.putData(this.index, newItem);
+  //     this.table.renderRows();
+  //   } else if (this.AddYes==true) {
+  //     this.dataService.postData(newItem);
+  //     this.table.renderRows();
+  //   }
+  //   this.close()
+  // }
   close() {
     this.EditYes=false;
     this.AddYes=false;
@@ -68,10 +81,13 @@ export class TableComponent {
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<Member>(datas)
     this.dataService.getData();
+    this.sourcenum = this.dataSource.data.length
+  }
+  ngDoCheck(): void {
+    this.sourcenum = this.dataSource.data.length
   }
 
   onButtonClicked(): void {
-    console.log('Button clicked in child component, calling function in parent component.');
     this.close()
   }
   

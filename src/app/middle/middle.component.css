@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+  }
+
+  .image-container {
+    flex: 1; /* Grow to fill available space */
+    align-items: center;
+  }
+
+  img {
+    max-width: 100%; 
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    width: 100%
+  }
+
+  .text-container {
+  flex: 1; /* Grow to fill available space */
+  text-align: center; /* Center text */
+  height: 100%; /* Match height of image */
+  width: 100%;
+  display: flex; /* Use flexbox for vertical centering */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Vertically center children */
+
+  
+}
