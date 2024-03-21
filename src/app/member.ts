@@ -64,4 +64,5 @@ export const perfumedatas = [
     }, 
 ]
 
+export const emails = ["cluphetret@hotmail.com", "Guithay65@gustr.com", "phitrudreh@yahoo.com", "qakyssaxisu-3687@yopmail.com", "thapripich@gmail.com"];
 

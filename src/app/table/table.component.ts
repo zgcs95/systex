@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Member, datas } from '../member';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DataService } from '../data.service';
+import { AsyncCustomValidator } from '../async-custom-validator';
 
 @Component({
   selector: 'app-table',
@@ -18,6 +19,7 @@ export class TableComponent {
   displaySequence: string[] = ["userName", "country", "salary", "email", "actions"]
   filterValue!: string;
   sourcenum!: number;
+  emails!: string[];
 
   add() {
     this.EditYes = false;
@@ -36,11 +38,15 @@ export class TableComponent {
     this.index = index;
   }
 
-  applyFilter(event: Event) {
+  // applyFilter(event: Event) {
+  //   this.filterValue = (event.target as HTMLInputElement).value;
+  //   this.dataSource.filter = this.filterValue.trim().toLowerCase();
+  // }
+
+  applyFilter(event: Event): void {
     this.filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = this.filterValue.trim().toLowerCase();
-    
-  }
+}
 
   getTotal() {
     return this.dataSource.filteredData.map(t => t.salary).reduce((acc, value) => acc + value, 0);
@@ -49,10 +55,12 @@ export class TableComponent {
   addItem(newItem: Member) {
     if (this.EditYes==true) {
       this.dataService.putData(this.index, newItem);
+      // this.dataService.getData()
       this.table.renderRows();
     } 
     if (this.AddYes==true) {
       this.dataService.postData(newItem);
+      // this.dataService.getData()
       this.table.renderRows();
     }
     this.close()
@@ -85,6 +93,22 @@ export class TableComponent {
   }
   ngDoCheck(): void {
     this.sourcenum = this.dataSource.data.length
+    // const newEmails = this.dataSource.data.map(obj => obj.email);
+    const newEmails = this.dataSource.data.map(obj => obj.email);
+    if (this.EditYes) {
+      if (this.index+1>=this.dataSource.data.length) {
+        const filterednewEmails = newEmails.filter(email => email === this.dataSource.data[this.index].email);
+        console.log(this.dataSource.data)
+        AsyncCustomValidator.setEmails(filterednewEmails);
+      } else {
+        const filterednewEmails = newEmails.filter(email => email === this.dataSource.data[this.index+1].email);
+        AsyncCustomValidator.setEmails(filterednewEmails);
+      }
+      
+    } else {
+      AsyncCustomValidator.setEmails(newEmails);
+    }
+    
   }
 
   onButtonClicked(): void {

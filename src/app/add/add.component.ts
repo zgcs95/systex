@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Member} from '../member';
 import { DataService } from '../data.service';
+import { AsyncCustomValidator } from '../async-custom-validator';
 
 @Component({
   selector: 'app-add',
@@ -15,8 +16,8 @@ export class AddComponent implements OnInit{
     this.memberForm = this.builder.group({
       'userName': ['',[Validators.required]],
       'country':['',[Validators.required]],
-      'salary':['',[Validators.required]],
-      'email':['',[Validators.required, Validators.email]]
+      'salary':['',[Validators.required, Validators.min(1)]],
+      'email':['',[Validators.required, Validators.email], [AsyncCustomValidator.AsyncCheckExistEmail()]]
     })
   }
 
@@ -42,17 +43,19 @@ export class AddComponent implements OnInit{
       errorMessage ='';
     } else if (formControl?.errors?.['required']) {
       errorMessage = `Please input ${display}`
+    } else if (formControl?.errors?.['min']) {
+      errorMessage = `Please input salary greater than 1`
     } else if (formControl?.errors?.['pattern']) {
       errorMessage = `must enter valid ${display}`
     } else if (formControl?.errors?.['email']) {
       errorMessage = `Please input valid ${display}`
+    } else if (formControl?.errors?.['CheckExistEmail']) {
+      errorMessage = `${formControl?.errors?.['CheckExistEmail'].requiredValue}`
     }
     return errorMessage
   }
 
-  
   @Output() buttonClick: EventEmitter<void> = new EventEmitter();
-
   onButtonClick(): void {
     this.buttonClick.emit();
   }

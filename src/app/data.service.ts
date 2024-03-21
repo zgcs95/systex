@@ -41,6 +41,11 @@ export class DataService {
     this.dataSource.next(new MatTableDataSource<Member>(currentData));
   }
 
+  // filterDataByName(name: string): {
+  //   const mockData = this.dataSource.getValue().data.filter(member => member.userName.toLowerCase().includes(name.toLowerCase()));
+  //   return mockData;
+  // }
+
   
 }
 
