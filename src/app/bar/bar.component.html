@@ -1,0 +1,42 @@
+<div class="container">
+    <div>
+        <img src="assets/1.png" alt="Image Description" class="img-fluid" style="max-width: 100%;">
+        <div style="float: right;" class="hide-on-small-screen">
+            <button><i class="fa-solid fa-shop"></i> Product</button>
+            <button><i class="fa-solid fa-user"></i> log in</button>
+            <button><i class="fa-solid fa-heart"></i> Wishlist</button>
+            <button><i class="fa-solid fa-cart-shopping"></i> Cart(3)</button>
+        </div>
+        <div style="float: right;">
+            <button mat-button [matMenuTriggerFor]="menu" class="show-on-small-screen"><i class="fas fa-bars"></i></button>
+        </div>
+        
+    </div>
+    
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Product</button>
+        <button mat-menu-item>WishList</button>
+        <button mat-menu-item>Blog</button>
+        <button mat-menu-item>Contact</button>
+        <button mat-menu-item>log in</button>
+    </mat-menu>
+
+</div>
+
+<style>
+    @media only screen and (max-width: 600px) {
+        .hide-on-small-screen {
+            display: none;
+        }
+    }
+
+    @media only screen and (min-width: 600px) {
+            .show-on-small-screen {
+                display: none;
+            }
+        }
+    
+
+</style>
+

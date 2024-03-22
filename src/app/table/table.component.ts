@@ -20,63 +20,70 @@ export class TableComponent {
   filterValue!: string;
   sourcenum!: number;
   emails!: string[];
+  keyword!: string;
 
+  // 新增資料
   add() {
     this.EditYes = false;
     this.AddYes = true;
   }
 
+  // 刪除資料
   remove(index: number) {
-    this.dataService.deleteData(index);
+    const target = this.dataService.findIndex(index)
+    this.dataService.deleteData(target);
+    if (this.keyword!=undefined) {
+      this.dataService.filterDataByName(this.filterValue);
+    } 
     this.table.renderRows();
-    this.dataSource.filter = (this.filterValue || '').trim().toLowerCase();
   }
 
+  // 修改資料
   edit(index: number) {
     this.AddYes = false;
     this.EditYes = true;
     this.index = index;
   }
-
-  // applyFilter(event: Event) {
-  //   this.filterValue = (event.target as HTMLInputElement).value;
-  //   this.dataSource.filter = this.filterValue.trim().toLowerCase();
-  // }
-
+  
+  // 過濾資料
   applyFilter(event: Event): void {
     this.filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = this.filterValue.trim().toLowerCase();
-}
+    this.dataService.filterDataByName(this.filterValue);
+    this.keyword = this.filterValue
+    
+  }
 
+  // 計算Total
   getTotal() {
     return this.dataSource.filteredData.map(t => t.salary).reduce((acc, value) => acc + value, 0);
   }
   
+  // 新增
   addItem(newItem: Member) {
     if (this.EditYes==true) {
-      this.dataService.putData(this.index, newItem);
-      // this.dataService.getData()
+      const target = this.dataService.findIndex(this.index)
+      this.dataService.putData(target, newItem);
+
+      if (this.keyword!=undefined) {
+        this.dataService.filterDataByName(this.filterValue);
+      } 
+
       this.table.renderRows();
+
+      
     } 
     if (this.AddYes==true) {
       this.dataService.postData(newItem);
-      // this.dataService.getData()
+      if (this.keyword!=undefined) {
+        this.dataService.filterDataByName(this.filterValue);
+      }
       this.table.renderRows();
+
     }
     this.close()
   }
-  
 
-  // addItem(newItem: Member) {
-  //   if (this.EditYes==true) {
-  //     this.dataService.putData(this.index, newItem);
-  //     this.table.renderRows();
-  //   } else if (this.AddYes==true) {
-  //     this.dataService.postData(newItem);
-  //     this.table.renderRows();
-  //   }
-  //   this.close()
-  // }
+  // 關閉表單
   close() {
     this.EditYes=false;
     this.AddYes=false;
@@ -86,25 +93,21 @@ export class TableComponent {
     
   }
   
+  //訂閱
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Member>(datas)
-    this.dataService.getData();
+    this.dataService.mockData$.subscribe(mockData => {
+      this.dataSource = mockData;
+    });
     this.sourcenum = this.dataSource.data.length
   }
+
+  // 更新資料
   ngDoCheck(): void {
     this.sourcenum = this.dataSource.data.length
-    // const newEmails = this.dataSource.data.map(obj => obj.email);
     const newEmails = this.dataSource.data.map(obj => obj.email);
     if (this.EditYes) {
-      if (this.index+1>=this.dataSource.data.length) {
-        const filterednewEmails = newEmails.filter(email => email === this.dataSource.data[this.index].email);
-        console.log(this.dataSource.data)
-        AsyncCustomValidator.setEmails(filterednewEmails);
-      } else {
-        const filterednewEmails = newEmails.filter(email => email === this.dataSource.data[this.index+1].email);
-        AsyncCustomValidator.setEmails(filterednewEmails);
-      }
-      
+      const filterednewEmails = newEmails.filter(email => email !== this.dataSource.data[this.index].email);
+      AsyncCustomValidator.setEmails(filterednewEmails);
     } else {
       AsyncCustomValidator.setEmails(newEmails);
     }

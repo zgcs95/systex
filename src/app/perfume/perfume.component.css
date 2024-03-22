@@ -4,10 +4,10 @@
   }
   
   .image-container {
-    flex: 0 0 auto; /* Do not grow, do not shrink, use auto size */
-    margin-right: 20px; /* Adjust spacing between image and text */
+    flex: 0 0 auto; 
+    margin-right: 0px; 
   }
   
   .text-container {
-    flex: 1; /* Grow to fill remaining space */
+    flex: 1; 
   }

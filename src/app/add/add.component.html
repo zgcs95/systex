@@ -2,6 +2,7 @@
     <div>
         <ng-content></ng-content>
     </div>
+    <!-- 表單 -->
     <form [formGroup]="memberForm">
         <div class="form-group">
             <label for="userName">Name</label>
@@ -39,16 +40,13 @@
                 </mat-error>
             </div>
         </div>
+        <!-- 按鈕 -->
         <button type="button" class="btn btn-primary" (click)="addNewItem(this.memberForm.value)" [disabled]="memberForm.invalid"><i class="fa-solid fa-pen"></i> Save change</button>
         <button type="button" class="btn btn-primary" (click)="onButtonClick()">Cancel</button>
     </form>
 </div>
 
-<style>
-    label{
-        font-weight:bold;
-    }
-</style>
+
 
 
 

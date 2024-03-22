@@ -30,12 +30,13 @@ export class AddComponent implements OnInit{
     this.memberForm.setValue(this.toedit)
   }
 
-
+  // 傳遞資料
   @Output() newItemEvent = new EventEmitter<Member>();
   addNewItem(value: Member) {
     this.newItemEvent.emit(value);
   }
 
+  // 提示錯誤訊息
   showErrorMessage(name: string, display: string): string {
     let formControl = this.memberForm.get(name);
     let errorMessage: string = '';

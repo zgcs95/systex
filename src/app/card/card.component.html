@@ -1,0 +1,105 @@
+
+<div class="card-container">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-xl-image src="assets/index5.jpg" class="mat-card-image">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>Poppy & Barley</h4>
+        <p>Jo Malone</p>
+        <p>NT$1380</p>
+        <p class="pline">NT$1580</p>
+      
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title-group>
+      
+          <img mat-card-xl-image src="assets/index6.jpg" class="mat-card-image">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>Body Wash</h4>
+        <p>Curology</p>
+        <p>NT$1580</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <img mat-card-xl-image src="assets/index7.jpg" class="mat-card-image">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <h4>Apple Cider Vinegar Capsule</h4>
+        <p>Tonik</p>
+        <p>NT$1580</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  
+<style>
+  .card-container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  background-color: #E0E0E0;
+  padding: none;
+  
+ }
+ 
+
+.card {
+    margin: none !important; 
+    background-color: #E0E0E0;
+    box-shadow: none;
+    object-fit: cover;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    
+}
+
+
+@media only screen and (max-width: 1110px) {
+    .card-container {
+        flex-direction: column; 
+        align-items: center;
+        padding: 10px; 
+    }
+
+    .card {
+        flex: 0 0 100%; 
+    }
+}
+
+.mat-card-image {
+    height: 540px; 
+    object-fit: cover;
+    width: 350px;
+}
+
+.mat-card-content {
+    text-align: center; 
+    height: 140px;
+    width: 350px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 16px;
+}
+
+.pline {
+  text-decoration: line-through !important;
+}
+
+  </style>

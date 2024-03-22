@@ -1,7 +1,7 @@
+<app-bar></app-bar>
 <div class="container">
   <div class="position-relative">
-    <img src="assets/1.png" alt="Image Description" class="img-fluid" style="max-width: 100%;">
-    <img src="assets/banner.jpg" alt="Image Description" class="img-fluid position-relative top-0 start-0" style="max-width: 100%;">
+    <img src="assets/banner.jpg" alt="Image Description" class="img-fluid position-relative top-0 start-0" >
     <div class="position-absolute top-50 start-50">
       Perfume your day <br>
       <button class="btn">Shop now</button>
@@ -12,57 +12,8 @@
 <app-middle [header]="perfumedatas[0].headers[0]" [content]="perfumedatas[0].content[0]" [imageUrl]="perfumedatas[0].imageUrl" [imagepos]="right"></app-middle>
 <app-middle [header]="perfumedatas[1].headers[0]" [content]="perfumedatas[1].content[0]" [imageUrl]="perfumedatas[1].imageUrl" [imagepos]="left"></app-middle>
 <app-middle [header]="perfumedatas[2].headers[0]" [content]="perfumedatas[2].content[0]" [imageUrl]="perfumedatas[2].imageUrl" [imagepos]="right"></app-middle>
-<app-middle [header]="perfumedatas[4].headers[0]" [content]="perfumedatas[4].content[0]" [imageUrl]="perfumedatas[4].imageUrl" [imagepos]="left"></app-middle>
-
-
-<div class="card-container">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Extra large</mat-card-subtitle>
-        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      dog
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Extra large</mat-card-subtitle>
-        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      dog
-    </mat-card-content>
-  </mat-card>
-
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Extra large</mat-card-subtitle>
-        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      dog
-    </mat-card-content>
-  </mat-card>
-</div>
-<style>
-  .card-container {
-  display: flex;
-  /* justify-content: space-between; */
-  align-items: center;
-  justify-content: center;
-}
-  .card {
-    align-items: center;
-  }
-</style>
+<app-card></app-card>
+<app-middle [header]="perfumedatas[4].headers[0]" [content]="perfumedatas[4].content[0]" [imageUrl]="perfumedatas[4].imageUrl" [imagepos]="left">
+  <p>{{perfumedatas[4].content[1]}}</p>
+</app-middle>
+<app-footer></app-footer>

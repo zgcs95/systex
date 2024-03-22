@@ -1,29 +1,46 @@
 .container {
-    display: flex;
-    justify-content: center; /* Horizontally center items */
-    align-items: center; /* Vertically center items */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 780px;
+}
+
+.text-container {
+  flex: 1 1 50%; 
+  padding: 20px;
+}
+
+.image-container {
+  flex: 1 1 50%; 
+  padding: 20px;
+  text-align: left;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+      flex-direction: column; 
   }
 
+  .text-container,
   .image-container {
-    flex: 1; /* Grow to fill available space */
-    align-items: center;
+      flex: 1 1 100%; 
   }
+}
 
-  img {
-    max-width: 100%; 
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove extra space below image */
-    width: 100%
-  }
-
-  .text-container {
-  flex: 1; /* Grow to fill available space */
-  text-align: center; /* Center text */
-  height: 100%; /* Match height of image */
-  width: 100%;
-  display: flex; /* Use flexbox for vertical centering */
-  flex-direction: column; /* Stack children vertically */
-  justify-content: center; /* Vertically center children */
-
-  
+button {
+  background-color: white; 
+  border: none;
+  color: brown;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

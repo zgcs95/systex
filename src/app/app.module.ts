@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
@@ -18,6 +17,10 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MiddleComponent } from './middle/middle.component';
 import { FooterComponent } from './footer/footer.component';
 import {MatCardModule} from '@angular/material/card';
+import { CardComponent } from './card/card.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { BarComponent } from './bar/bar.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +28,9 @@ import {MatCardModule} from '@angular/material/card';
     AddComponent,
     PerfumeComponent,
     MiddleComponent,
-    FooterComponent
+    FooterComponent,
+    CardComponent,
+    BarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import {MatCardModule} from '@angular/material/card';
     ReactiveFormsModule,
     NgbModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule,
+    MatGridListModule
     
   ],
   providers: [],
