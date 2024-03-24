@@ -1,7 +1,6 @@
-
 <ng-container *ngIf="imagepos=='right'; else template2">
-  <div class="container" fxHide.lt-m #hide>
-    <div class="text-container text-center">
+  <div class="container">
+    <div class="text-container">
       <h2>{{header}}</h2>
       <p>{{content}}</p>
       <ng-content></ng-content>
@@ -12,17 +11,6 @@
     </div>
   </div>
 
-  <div class="container" *ngIf="!hide">
-    <div class="image-container">
-      <img src={{imageUrl}} alt="Image Description">
-    </div>
-    <div class="text-container text-center">
-      <h2>{{header}}</h2>
-      <p>{{content}}</p>
-      <ng-content></ng-content>
-      <button>查看更多</button>
-    </div>
-  </div>
 </ng-container>
 
 <ng-template #template2>
@@ -30,7 +18,7 @@
     <div class="image-container">
       <img src={{imageUrl}} alt="Image Description">
     </div>
-    <div class="text-container text-center">
+    <div class="text-container">
       <h2>{{header}}</h2>
       <p>{{content}}</p>
       <ng-content></ng-content>

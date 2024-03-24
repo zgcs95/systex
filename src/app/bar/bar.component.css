@@ -2,9 +2,45 @@ button {
     background-color: white; 
     border: none;
     color: gray;
-    padding: 15px 32px;
+    padding: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
   }
+
+@media only screen and (max-width: 600px) {
+  .hide-on-small-screen {
+      display: none;
+      flex: 0 0 100%
+  }
+  .container {
+      flex: 0 0 100%
+  }
+}
+
+@media only screen and (min-width: 600px) {
+        .show-on-small-screen {
+            display: none;
+            flex: 0 0 100%
+        }
+        .container {
+        flex: 0 0 100%
+    }
+    }
+
+/* reasons here */
+.container {
+    max-width: 1110px;
+    max-height: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+} 
+
+
+
+
+

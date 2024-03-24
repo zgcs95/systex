@@ -9,15 +9,53 @@ button {
     font-size: 16px;
   }
 h2 {
+  text-align: left;
+  font: normal normal 600 32px/48px PingFang TC;
+  letter-spacing: 0px;
   color: #8D8D8D;
-  font-size: 32px;
+  opacity: 1;
 }
 
 .bar-container {
   background-color: #916000; 
+  width: 1110px;
 }
-
+img {
+  background-color: #916000; 
+  padding-right: none;
+}
 p {
   font-size: 14px;
   color: white;
 }
+
+
+.container {
+  width: 100vw; 
+  max-width: 100%; 
+  padding: 0;
+}
+
+.img-fluid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center center; 
+}
+
+
+@media only screen and (max-width: 1110px) {
+  .container {
+      flex-direction: column;
+      align-items: center;
+      flex: 0 0 100%;
+      padding: 0; 
+  }
+
+  .block {
+    flex: 0 0 100%;
+    
+  }
+
+}
+

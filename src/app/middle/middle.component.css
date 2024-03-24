@@ -3,34 +3,66 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  max-width: 780px;
+  text-align: left;
+  max-width: 1110px;
 }
 
 .text-container {
   flex: 1 1 50%; 
-  padding: 20px;
+  text-align: left;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  align-items: left;
+
+
+  /* answers */
+  width: 555px;
+  height: 555px;
+  margin: none;
+  
 }
 
 .image-container {
   flex: 1 1 50%; 
-  padding: 20px;
+  padding: none;
   text-align: left;
+
+  /* answers */
+  width: 555px;
+  height: 555px;
+  padding: none !important;
 }
 
 img {
   max-width: 100%;
-  height: auto;
+  height: 555px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .container {
-      flex-direction: column; 
+    flex-direction: column; 
+    flex: 0 0 100%;
+    align-items: center;
+    padding: 0;
+      
   }
 
   .text-container,
   .image-container {
-      flex: 1 1 100%; 
+      flex: 0 0 100%; 
+      object-fit: cover;
+      
+  }
+
+
+  .image-container {
+    order: 1;
+  }
+
+  .text-container {
+    order: 2;
   }
 }
 
@@ -44,3 +76,8 @@ button {
   display: inline-block;
   font-size: 16px;
 }
+
+h2 {
+  font-size: 32px;
+}
+
