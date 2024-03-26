@@ -74,6 +74,11 @@ img {
   .text-container {
     order: 2;
   }
+
+  p {
+    font-size: 16px
+  }
+  
 }
 
 button {
@@ -90,5 +95,9 @@ button {
 
 h2 {
   font-size: 32px;
+}
+
+p {
+  font-size: 20px
 }
 

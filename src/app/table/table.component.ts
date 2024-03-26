@@ -13,10 +13,8 @@ import { MatSort } from '@angular/material/sort';
 export class TableComponent {
   @ViewChild(MatTable)
   table!: MatTable<Member>;
-
-
-  @ViewChild(MatSort) sort!: MatSort;
-
+  @ViewChild(MatSort) 
+  sort!: MatSort;
 
   index!: number
   EditYes: boolean = false;
@@ -35,27 +33,10 @@ export class TableComponent {
     this.AddYes = true;
   }
 
+
   // 刪除資料
-  // remove(index: number) {
-  //   if (index == this.index && this.EditYes) {
-  //     this.EditYes = false;
-  //   }
-  //   const target = this.dataService.findIndex(index)
-  //   this.dataService.deleteData(target);
-  //   if (this.keyword!=undefined) {
-  //     this.dataService.filterDataByName(this.filterValue);
-  //   } 
-
-  //   this.index = this.index - 1;
-  //   this.table.renderRows();
-  //   this.dataSource.sort = this.sort;
-  // }
-
   remove(email: string) {
     this.close();
-    // if (index == this.index && this.EditYes) {
-    //   this.EditYes = false;
-    // }
     const target = this.dataService.findIndexbyemail(email)
     this.dataService.deleteData(target);
     if (this.keyword!=undefined) {
@@ -69,12 +50,6 @@ export class TableComponent {
 
 
   // 修改資料
-  // edit(index: number) {
-  //   this.AddYes = false;
-  //   this.EditYes = true;
-  //   this.index = index;
-  // }
-
   edit(email: string) {
     this.AddYes = false;
     this.EditYes = true;
@@ -89,7 +64,6 @@ export class TableComponent {
     this.filterValue = (event.target as HTMLInputElement).value;
     this.dataService.filterDataByName(this.filterValue);
     this.keyword = this.filterValue
-
     this.dataSource.sort = this.sort;
     this.AddYes = false;
     this.EditYes = false;
@@ -152,18 +126,9 @@ export class TableComponent {
   // 更新資料
   ngDoCheck(): void {
     this.sourcenum = this.dataSource.data.length
-    // const newEmails = this.dataSource.data.map(obj => obj.email);
-    // if (this.EditYes) {
-    //   const filterednewEmails = newEmails.filter(email => email !== this.dataSource.data[this.index].email);
-    //   AsyncCustomValidator.setEmails(filterednewEmails);
-    // } else {
-    //   AsyncCustomValidator.setEmails(newEmails);
-    // }
     this.dataSource.sort = this.sort;
-
     const newEmails = this.realData.data.map(obj => obj.email);
     if (this.EditYes) {
-      // const filterednewEmails = newEmails.filter(email => email !== this.realData.data[this.index].email);
       const filterednewEmails = newEmails.filter(email => email !== this.realData.data[this.dataService.findIndex(this.index)].email);
       AsyncCustomValidator.setEmails(filterednewEmails);
     } else {
@@ -178,9 +143,8 @@ export class TableComponent {
   
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    // sorting after view or child component view changes
   }
 
-  // print(email: string) {
-  //   console.log(this.dataService.findIndexbyemail(email))
-  // }
+
 }
