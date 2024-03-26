@@ -30,22 +30,6 @@
         width: 555px;
         height: auto;
     }
-
-    /* .card {
-        flex: 0 0 100%; 
-        margin: none;
-
-        width: 555px !important;
-        height: auto;
-    }
-    .mat-card-content {
-        width: 555px !important;
-        height: auto;
-    }
-    .mat-card-image {
-        width: 555px !important;
-        height: auto;
-    } */
     img {
         width: 555px;
         max-height: none;

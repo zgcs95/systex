@@ -33,22 +33,10 @@ button {
   }
 }
 
-/* @media only screen and (min-width: 600px) {
-  .show-on-small-screen {
-      display: none;
-      flex: 0 0 100%
-  }
-  .container {
-  flex: 0 0 100%;
-  }
-} */
 
-/* reasons here */
 .container {
     max-width: 1920px;
     max-width: 2500px;
-    /* max-width: 100vw; */
-    /* max-height: 56px; */
     max-height: 80px;
     display: flex;
     flex-wrap: wrap;

@@ -15,19 +15,7 @@
     padding-right: 30px;
     padding-bottom: 50px;
     padding-left: 80px;
-  
-    /* padding-top: 166.5px;
-    padding-right: 102.5px;
-    padding-bottom: 166.5px;
-    padding-left: 102.5px; */
     align-items: left;
-  
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;  */
-  
-  
-    /* answers */
     width: 380px;
     height: 555px;
     margin: none;
@@ -38,8 +26,6 @@
     flex: 1 1 66%; 
     padding: none;
     text-align: left;
-  
-    /* answers */
     width: 730px;
     height: 555px;
     padding: none !important;
@@ -66,9 +52,6 @@
     .image-container {
         flex: 0 0 100%; 
         object-fit: cover;
-  
-        /* height: 350px !important;
-        width: 350px; */
         padding: 0;
         margin: 0;
         width: 555px;
@@ -88,7 +71,6 @@
     background-color: white; 
     border: none;
     color: #AC8A46;
-    /* padding: 15px 32px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;

@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
 export class FooterComponent {
   onButtonClick(event: MouseEvent): void {
     event.preventDefault();
-    // You can add any other custom logic here
   }
 }
 

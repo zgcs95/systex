@@ -10,23 +10,11 @@
 .text-container {
   flex: 1 1 50%; 
   text-align: left;
-  /* padding-top: 50px;
-  padding-right: 30px;
-  padding-bottom: 50px;
-  padding-left: 80px; */
-
   padding-top: 166.5px;
   padding-right: 102.5px;
   padding-bottom: 166.5px;
   padding-left: 102.5px;
   align-items: left;
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;  */
-
-
-  /* answers */
   width: 555px;
   height: 555px;
   margin: none;
@@ -37,8 +25,6 @@
   flex: 1 1 50%; 
   padding: none;
   text-align: left;
-
-  /* answers */
   width: 555px;
   height: 555px;
   padding: none !important;
@@ -85,12 +71,10 @@ button {
   background-color: white; 
   border: none;
   color: #AC8A46;
-  /* padding: 15px 32px; */
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  /* margin-left: 0; */
 }
 
 h2 {
