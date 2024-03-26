@@ -22,6 +22,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { BarComponent } from './bar/bar.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { LongComponent } from './long/long.component';
+import { FooterbarComponent } from './footerbar/footerbar.component';
+import { BottleComponent } from './bottle/bottle.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { LongComponent } from './long/long.component';
     FooterComponent,
     CardComponent,
     BarComponent,
-    LongComponent
+    LongComponent,
+    FooterbarComponent,
+    BottleComponent
   ],
   imports: [
     BrowserModule,

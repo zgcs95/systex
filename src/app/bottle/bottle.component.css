@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    max-width: 1110px;
+    margin-top: 60px;
+  }
+  
+  .text-container {
+    flex: 1 1 34%; 
+    text-align: left;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+  
+    /* padding-top: 166.5px;
+    padding-right: 102.5px;
+    padding-bottom: 166.5px;
+    padding-left: 102.5px; */
+    align-items: left;
+  
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;  */
+  
+  
+    /* answers */
+    width: 380px;
+    height: 555px;
+    margin: none;
+    
+  }
+  
+  .image-container {
+    flex: 1 1 66%; 
+    padding: none;
+    text-align: left;
+  
+    /* answers */
+    width: 730px;
+    height: 555px;
+    padding: none !important;
+  }
+  
+  img {
+    max-width: 100%;
+    height: 520px;
+  }
+  
+  @media only screen and (max-width: 1110px) {
+    .container {
+      flex-direction: column; 
+      flex: 0 0 100%;
+      align-items: center;
+      padding: 0;
+      margin: none;
+      width: 555px;
+      margin-top: 30px;
+        
+    }
+  
+    .text-container,
+    .image-container {
+        flex: 0 0 100%; 
+        object-fit: cover;
+  
+        /* height: 350px !important;
+        width: 350px; */
+        padding: 0;
+        margin: 0;
+        width: 555px;
+    }
+  
+  
+    .image-container {
+      order: 1;
+    }
+  
+    .text-container {
+      order: 2;
+    }
+  }
+  
+  button {
+    background-color: white; 
+    border: none;
+    color: #AC8A46;
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  h2 {
+    font-size: 32px;
+  }
+  
+  

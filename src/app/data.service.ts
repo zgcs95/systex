@@ -60,12 +60,28 @@ export class DataService {
     });
 }
 
-// 找對應資料
-findIndex(index: number): number {
-  const mockData = this.mockData.getValue();
-  const emailToFind = mockData.data[index].email;
-  const dataSource = this.dataSource.getValue();
-  return dataSource.data.findIndex(item => item.email === emailToFind);
-}
+  // 找對應資料
+  findIndex(index: number): number {
+    const mockData = this.mockData.getValue();
+    const emailToFind = mockData.data[index].email;
+    if (!emailToFind) {
+      console.log("no email")
+      // will return -1 in no found
+    }
+    const dataSource = this.dataSource.getValue();
+    return dataSource.data.findIndex(item => item.email === emailToFind);
+  }
+
+  // 找對應資料 (刪除用的)
+  findIndexbyemail(email: string): number {
+    const dataSource = this.dataSource.getValue();
+    return dataSource.data.findIndex(item => item.email === email);
+  }
+
+  // 找對應資料 (編輯用的)
+  findIndexbyemail2(email: string): number {
+    const dataSource = this.mockData.getValue();
+    return dataSource.data.findIndex(item => item.email === email);
+  }
 }
 

@@ -2,11 +2,17 @@ button {
     background-color: #916000; 
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: none;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    
+
+    width: 131px; 
+    height: 60px; 
     font-size: 16px;
+    
+    
   }
 h2 {
   text-align: left;
@@ -19,42 +25,74 @@ h2 {
 .bar-container {
   background-color: #916000; 
   width: 1110px;
+  height: 80px;
 }
 img {
   background-color: #916000; 
   padding-right: none;
 }
 p {
-  font-size: 14px;
-  color: white;
+  font-size: 16px;
+  color: #8D8D8D;
 }
+
 
 
 .container {
   width: 100vw; 
   max-width: 100%; 
+  margin: 0;
   padding: 0;
 }
 
-.img-fluid {
+
+.image-container {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  object-position: center center; 
+}
+
+input {
+  width: 219px; 
+  height: 60px; 
+  border: 2px solid #916000;
 }
 
 
-@media only screen and (max-width: 1110px) {
+@media only screen and (max-width: 600px) {
   .container {
-      flex-direction: column;
-      align-items: center;
-      flex: 0 0 100%;
-      padding: 0; 
+    flex-direction: column;
+    align-items: center;
+    padding: 0; 
+    flex: 0 0 100%; 
   }
 
+  .image-container {
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 100%; 
+    object-fit: cover;
+    width: 555px;
+    height: auto;
+  }
+
+
   .block {
-    flex: 0 0 100%;
+    flex: 0 0 100%; 
+    object-fit: cover;
+    width: 350px;
+    height: auto;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-21%, -50%);
     
+  }
+
+
+  .hide-on-small-screen {
+    display: none;
+    flex: 0 0 100%
   }
 
 }

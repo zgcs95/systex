@@ -6,8 +6,18 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
+    margin-left: 4px;
   }
+
+  .card:hover {
+    box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
+  }
+button:hover {
+    border-bottom:2px solid #916000;
+}
+
+  
 
 @media only screen and (max-width: 600px) {
   .hide-on-small-screen {
@@ -15,7 +25,8 @@ button {
       flex: 0 0 100%
   }
   .container {
-      flex: 0 0 100%
+      flex: 0 0 100%;
+      width: 555px;
   }
 }
 
@@ -25,7 +36,8 @@ button {
             flex: 0 0 100%
         }
         .container {
-        flex: 0 0 100%
+        flex: 0 0 100%;
+        /* width: 555px; */
     }
     }
 

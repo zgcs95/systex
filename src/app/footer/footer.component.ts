@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-
+  onButtonClick(event: MouseEvent): void {
+    event.preventDefault();
+    // You can add any other custom logic here
+  }
 }
+
+

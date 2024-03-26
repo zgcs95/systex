@@ -5,6 +5,8 @@
     align-items: center;
     text-align: left;
     max-width: 1110px;
+    margin-bottom: 60px;
+
     
     
   }
@@ -32,6 +34,8 @@
     
   }
 
+  .button1:hover {background-color: black; color: white;}
+
   
   
   @media only screen and (max-width: 600px) {
@@ -40,6 +44,8 @@
         flex: 0 0 100%;
         align-items: center;
         padding: 0;
+        margin: none;
+        margin-bottom: 30px;
        
         
     }
@@ -47,6 +53,15 @@
     .image-container {
       flex: 0 0 100%;
       padding: 0;
+
+      /* height: auto;
+      width: 350px; */
+      padding: 0;
+      margin: 0;
+      
+      width: 555px;
+      height: auto;
+      
     }
   }
   

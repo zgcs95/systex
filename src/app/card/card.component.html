@@ -1,13 +1,12 @@
 
 <div class="card-container">
-    <mat-card class="card">
+    <mat-card class="card card1">
       <img mat-card-xl-image src="assets/index5.jpg" class="mat-card-image">
       <mat-card-content>
         <h4>Poppy & Barley</h4>
         <p>Jo Malone</p>
-        <p>NT$1380</p>
-        <p class="pline">NT$1580</p>
-      
+        <p style="display: inline-block;">NT$1380</p>
+        <p class="pline" style="display: inline-block;">NT$1580</p>
       </mat-card-content>
     </mat-card>
     
@@ -21,7 +20,13 @@
     </mat-card>
   
     <mat-card class="card">
-      <img mat-card-xl-image src="assets/index7.jpg" class="mat-card-image">
+      <div>
+      <img style="filter: brightness(50%);" mat-card-xl-image src="assets/index7.jpg" class="mat-card-image">
+      <div style="position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); font-size: 24px; color: white;" class="centered">Sold out</div>
+    </div>
       <mat-card-content>
         <h4>Apple Cider Vinegar Capsule</h4>
         <p>Tonik</p>
